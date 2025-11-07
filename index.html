@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joe Rides On</title>
+  <meta name="description" content="A tribute to Joe Albert: Coast Guard, Massachusetts State Trooper, Rider." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/svg" href="./assets/images/JAFAV.svg" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-bar">
+    <a href="#home" class="brand"><span class="brand-accent">Joe </span>Rides On</a>
+
+    <!-- Hamburger (mobile) -->
+    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <!-- Right-aligned links -->
+    <nav id="primary-nav" class="nav-links">
+      <a href="#road">The Road</a>
+      <a href="#service">Service</a>
+      <a href="#stories">Stories</a>
+      <a href="#donate">Giving</a>
+      <a href="mom.html" class="pill">For Sandy</a>
+    </nav>
+  </div>
+</header>
+
+  <main id="home">
+    <!-- HERO -->
+  <section id="home" class="hero-full">
+  <img src="assets/images/joebluebike.png" alt="Joe with his bike" class="hero-bg" />
+  <div class="hero-gradient" aria-hidden="true"></div>
+  <div class="hero-overlay">
+    <h1>JOSEPH ALBERT</h1>
+    <p><strong>Coast Guard.</strong> <strong>State Trooper.</strong> <strong>Rider.</strong></p>
+    <p>Good man. Amazing career. But you'd never hear that from him.</p>
+    <div class="buttons">
+      <a class="btn outline" href="#stories">Share a story</a>
+      <a class="btn outline" href="#road">See the road</a>
+    </div>
+  </div>
+</section>
+
+    <section class="strip">
+      <div class="wrap center small">
+        <p>In loving memory of <strong>Joe</strong>. Coast Guard • Massachusetts State Police • Rider</p>
+      </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section id="service" class="section-pad">
+      <div class="wrap">
+        <h2>Service to Country and Commonwealth</h2>
+        <p>Joe served his country and community with honor and distinction. Here’s a look at his career in the <strong>U.S. Coast Guard</strong> and the <strong>Massachusetts State Police</strong>.</p>
+      </div>
+
+<div class="service-grid">
+
+  <article class="service-card service-card--uscg">
+  <header class="service-card__header">
+    <img src="assets/images/coastgoardlogo.svg" alt="Coast Guard logo" class="service-card__logo">
+    <h3 class="service-card__title">United States Coast Guard</h3>
+  </header>
+  <ul class="service-card__list">
+    <li><span class="label">Years of service</span><span class="value">1984—19XX</span></li>
+    <li><span class="label">Unit / Rating</span><span class="value">[UNIT / RATING]</span></li>
+    <li class="span2"><span class="label">Notable moments</span><span class="value">[Brief Quote or Story]</span></li>
+  </ul>
+</article>
+
+<article class="service-card service-card--msp">
+  <header class="service-card__header">
+    <img src="assets/images/msplogo.png" alt="Massachusetts State Police logo" class="service-card__logo">
+    <h3 class="service-card__title">Massachusetts State Police</h3>
+  </header>
+  <ul class="service-card__list">
+    <li><span class="label">Years of Service</span><span class="value">1989—2020</span></li>
+    <li><span class="label">Barracks / Troop</span><span class="value">[BARRACKS / TROOP]</span></li>
+    <li class="span2"><span class="label">Notable moments</span><span class="value">[Brief Quote or Story]</span></li>
+  </ul>
+</article>
+</div>
+
+    </section>
+
+    <!-- ROADS HE TRAVELED / 52 FOR JOE -->
+   <section id="road" class="two-col section-pad">
+      <div class="wrap">
+        <div>
+          <h2>Roads He Traveled</h2>
+          <p>Photos, rides, and favorite routes. Stories from the people who shared the same road.</p>
+          <ul class="bullets">
+            <li><strong>Bike:</strong> 2019 Harley Davidson Road Glide Ultra — "Nemo"</li>
+              <img src="assets/images/nemo.jpg" alt="Nemo parked" class="roads"/>
+            <li><strong>Favorite route:</strong> [ROUTE / PLACE]</li>
+            <li><strong>Playlist:</strong> <a href="#">[SPOTIFY / APPLE LINK]</a></li>
+          </ul>
+          <div class="card">
+          <h2>Fifty-Two For Joe</h2>
+            <p class="muted">Joe rode through 46 states, six short of the full 52. As a tribute, we invite riders and travelers to visit the ones he didn't reach. Send a photo or story from the road, and we'll mark them as visited.<br>
+            Let's finish the ride together.</p>
+          </div>
+        </div>
+<img src="assets/images/us.svg" alt="Map of the United States" class="us-map" />
+
+
+    <!-- STORIES -->
+    <section id="stories" class="section-pad">
+      <div class="wrap">
+        <h2>Stories for the Road</h2>
+        <p>Share the moments that prove he's still shaping the world.</p>
+
+        <section id="submit" class="card">
+          <form name="stories" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="stories"/>
+            <div class="grid">
+              <label> Your name
+                <input name="name" placeholder="Jane Doe" required>
+              </label>
+              <label> How you knew Joe
+                <input name="relation" placeholder="Friend / Neighbor / MSP colleague" required>
+              </label>
+            </div>
+            <label> Your story
+              <textarea name="story" rows="6" placeholder="One time we…" required></textarea>
+            </label>
+            <label> Optional photo link
+              <input name="photo" placeholder="https:// ...">
+            </label>
+            <button class="btn solid" type="submit">Submit story</button>
+            <p class="muted small">Submissions are reviewed before they appear on the site.</p>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <!-- DONATIONS -->
+    <section id="donate" class="section-pad">
+      <div class="wrap">
+        <h2>Keep His Good Work Moving</h2>
+        <p>If you’d like to honor <strong>Joe</strong>, here are the organizations that reflect the causes that he cared about — his brothers and sisters in uniform and the families behind them.</p>
+
+        <div class="grid-cards">
+          <div class="card">
+            <h3>OPFOB</h3>
+            <p class="muted">Supporting veterans through community, reconnection, and mission.</p>
+            <p><a class="btn outline" href="https://opFOB.org" target="_blank" rel="noopener">Donate</a></p>
+          </div>
+          <div class="card">
+            <h3>SPAM Benevolent Fund</h3>
+            <p class="muted">Assisting Troopers and their families in times of need.</p>
+            <p><a class="btn outline" href="https://www.msptrooper.org/donate" target="_blank" rel="noopener">Donate</a></p>
+          </div>
+          <div class="card">
+            <h3>Coast Guard Foundation</h3>
+            <p class="muted">Standing with Coast Guard members and their families — on the water and beyond.</p>
+            <p><a class="btn outline" href="https://coastguardfoundation.org/give" target="_blank" rel="noopener">Donate</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">
+      <p>Handcrafted with love • <span id="year"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

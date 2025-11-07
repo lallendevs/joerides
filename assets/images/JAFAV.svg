@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 64 64">
+  <!-- Generator: Adobe Illustrator 29.8.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #020a33;
+      }
+
+      .st1 {
+        fill: #f2f2f2;
+        font-family: BebasNeue-Regular, 'Bebas Neue';
+        font-size: 37.81px;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M32.69.74c10.39.15,20.8,2.95,29.79,8.13.41.24.94.51,1.32.78.04.03.09.05.08.11l-31.95,53.52L-.04,9.72c4.56-2.77,9.48-4.96,14.6-6.47C19.94,1.67,25.58.82,31.19.74c.5,0,1,0,1.5,0Z"/>
+  <text class="st1" transform="translate(19.37 37.98)"><tspan x="0" y="0">JA</tspan></text>
+</svg>
