@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Sandy — Ride Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    const ok = sessionStorage.getItem('mom-ok') === 'true' || prompt('Private page. Enter the family word:','') === '[FAMILY_WORD]';
+    if (!ok) { window.location.href = 'index.html'; } else { sessionStorage.setItem('mom-ok','true'); }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html#home" class="brand"><span class="brand-accent">Ride</span>Home</a>
+      <nav class="nav">
+        <a href="index.html#road">The Road</a>
+        <a href="index.html#service">Service</a>
+        <a href="index.html#stories">Stories</a>
+        <a class="active" href="mom.html">For Sandy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>For Sandy</h1>
+    <p class="muted">A quieter place. Letters, photos, voice notes — when you're ready.</p>
+
+    <section class="grid-cards">
+      <div class="card">
+        <h2>Private Uploads</h2>
+        <p>Use this link to add photos/notes only you control:</p>
+        <p><a href="#" class="btn outline">[DRIVE / DROPBOX LINK]</a></p>
+      </div>
+      <div class="card">
+        <h2>Family Area</h2>
+        <p>We’ll share updates and add approved stories here over time.</p>
+        <p class="muted small">To change the family word, edit <code>mom.html</code> (top of file).</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap small">
+      <p>Ride Home • <span id="year"></span></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
