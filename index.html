@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
   <link rel="icon" type="image/svg" href="./assets/images/JAFAV.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -448,58 +452,93 @@
 </section>
 
 <!-- DONATIONS -->
-<section id="donate" class="section-pad donate-section">
-  <div class="wrap donate-wrap">
+<section id="donate" class="section-pad donate">
+  <div class="wrap">
+
     <header class="donate-header">
+      <p class="eyebrow">Honor His Service</p>
       <h2>Keep His Good Work Moving</h2>
-      <p>
-        If you’d like to honor <strong>Joe</strong>, here are the organizations that reflect the causes he cared about —
-        his brothers and sisters in uniform and the families behind them.
+      <p class="muted">
+        If you’d like to honor <strong>Joe</strong>, these are the organizations that reflect the work he cared about most —
+        his brothers and sisters in uniform, and the families behind them.
       </p>
     </header>
 
-    <div class="donation-grid">
-      <article class="donation-item donation-vets">
-        <div class="donation-meta">
-          <span class="donation-tag">Veterans</span>
-          <h3 class="donation-name">OPFOB</h3>
+    <div class="donate-grid">
+      <!-- OPFOB -->
+      <article class="tribute-card">
+        <div class="tribute-ribbon"></div>
+
+        <div class="tribute-body">
+          <p class="tribute-label">Veteran Community</p>
+          <h3>OPFOB</h3>
+          <p class="muted">
+            Supporting veterans through community, reconnection, and mission — getting them out of isolation and
+            back beside people who understand.
+          </p>
         </div>
-        <p class="donation-copy">
-          Supporting veterans through community, reconnection, and mission.
-        </p>
-        <a class="btn donate-btn" href="https://opFOB.org" target="_blank" rel="noopener">Donate</a>
+
+        <footer class="tribute-footer">
+          <span class="tribute-tag">Nonprofit • Outdoors • Brotherhood</span>
+          <a class="btn tribute-btn" href="https://opfob.org" target="_blank" rel="noopener">
+            Visit OPFOB
+          </a>
+        </footer>
       </article>
 
-      <article class="donation-item donation-troopers">
-        <div class="donation-meta">
-          <span class="donation-tag">State Troopers</span>
-          <h3 class="donation-name">SPAM Benevolent Fund</h3>
+      <!-- SPAM Benevolent Fund -->
+      <article class="tribute-card">
+        <div class="tribute-ribbon ribbon-alt"></div>
+
+        <div class="tribute-body">
+          <p class="tribute-label">Law Enforcement Families</p>
+          <h3>SPAM Benevolent Fund</h3>
+          <p class="muted">
+            Helping support State Police members and their loved ones when life hits hard — medical crises, loss,
+            and the quiet needs that don’t make headlines.
+          </p>
         </div>
-        <p class="donation-copy">
-          Assisting Troopers and their families in times of need.
-        </p>
-        <a class="btn donate-btn" href="https://www.msptrooper.org/donate" target="_blank" rel="noopener">Donate</a>
+
+        <footer class="tribute-footer">
+          <span class="tribute-tag">Relief • Support • Service</span>
+          <a class="btn tribute-btn" href="https://www.michigan.gov/msp/0,4643,7-123-72049_72054_72061---,00.html" target="_blank" rel="noopener">
+            Visit SPAM Benevolent Fund
+          </a>
+        </footer>
       </article>
 
-      <article class="donation-item donation-uscg">
-        <div class="donation-meta">
-          <span class="donation-tag">Coast Guard</span>
-          <h3 class="donation-name">Coast Guard Foundation</h3>
+      <!-- Coast Guard Foundation -->
+      <article class="tribute-card">
+        <div class="tribute-ribbon ribbon-alt"></div>
+
+        <div class="tribute-body">
+          <p class="tribute-label">Coast Guard Families</p>
+          <h3>Coast Guard Foundation</h3>
+          <p class="muted">
+            Providing scholarships, relief, and support programs for Coast Guard members and their families —
+            standing behind the people who stand the watch.
+          </p>
         </div>
-        <p class="donation-copy">
-          Standing with Coast Guard members and their families — on the water and beyond.
-        </p>
-        <a class="btn donate-btn" href="https://coastguardfoundation.org/give" target="_blank" rel="noopener">Donate</a>
+
+        <footer class="tribute-footer">
+          <span class="tribute-tag">Scholarships • Relief • Resilience</span>
+          <a class="btn tribute-btn" href="https://coastguardfoundation.org" target="_blank" rel="noopener">
+            Visit Coast Guard Foundation
+          </a>
+        </footer>
       </article>
+
+
     </div>
+
+    <p class="donate-note muted">
+      These links are offered in Joe’s honor. Give if you’re able. Share if you’re not. Either way, thank you for
+      keeping his good work moving.
+    </p>
+
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="wrap small">
-    <p>Handcrafted with love • <span id="year"></span></p>
-  </div>
-</footer>
 
 
   </main>
