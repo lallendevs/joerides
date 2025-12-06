@@ -98,126 +98,141 @@ section[id] {
   scroll-margin-top: 90px;
 }
 
-/* ========= HERO ========= */
+/* ========== HERO ========== */
 
-.hero {
+.hero-full {
   position: relative;
-  padding: 7rem 15rem 6rem;
+  width: 100%;
+  min-height: 72vh;
 
-  /* background image + a single, moderate dark gradient */
-background:
-  linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.75)),
-  url("assets/images/joebluebike.png") right 20% top 5% / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  color: var(--ink);
+  overflow: hidden;
+
+  /* HERO IMAGE — update filename if needed */
+  background-image: url("assets/images/joebluebike.png");
+  background-size: cover;
+  background-position: center 5%;
   background-repeat: no-repeat;
 }
 
-/* container: left on desktop, center on mobile */
-.hero-inner {
-  /* CARD SIZE + POSITION */
-  max-width: 34rem;
-  margin-left: 6%;
+/* Dark gradient over the image, heavier on the left */
+.hero-full::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.18) 75%,
+      rgba(0, 0, 0, 0.0) 100%
+    );
+  z-index: 0;
+}
+
+/* TEXT PANEL */
+.hero-bg {
+  position: relative;
+  z-index: 1;
+
+  max-width: 38rem;
+
+  /* LEFT ALIGNMENT, NOT CENTERED */
+  margin-left: clamp(1.5rem, 6vw, 4.5rem);
   margin-right: auto;
-  padding: 1.75rem 2rem 2rem;
 
-  /* PANEL LOOK */
-  background: rgba(0, 0, 0, 0.38);
-  border-radius: 0.75rem;
-  backdrop-filter: blur(3px);
+  padding: 2.25rem 2.5rem 2.75rem;
 
-  /* LAYOUT FOR TEXT */
-  display: inline-flex;     
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  flex: 0 0 auto;            
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0.85rem;
+  backdrop-filter: blur(4px);
+
+  /* Softer shadow so it doesn’t look like a floating sticker */
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.55);
 }
 
+/* TEXT ELEMENTS */
 
-@media (max-width: 768px) {
-  .hero-inner {
-    max-width: none;
-    margin: 0 1rem 2rem;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-
-
-@media (max-width: 768px) {
-  .hero-inner {
-    margin: 0 auto;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-/* typography */
+/* TEXT ELEMENTS */
 
 .hero-eyebrow {
-  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.85;
+  margin: 0 0 0.5rem 0;
 }
 
 .hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 3vw + 1.4rem, 3.3rem);
-  line-height: 1.08;
-  margin: 0 0 0.4rem;
+  font-size: clamp(2.6rem, 4.2vw, 3.2rem);
+  line-height: 1.05;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
 }
 
+/* COAST GUARD. STATE TROOPER. RIDER. */
 .hero-subtitle {
-  font-family: var(--font-sans);
   font-size: 0.95rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 0.8rem;
+  font-weight: 500;
+  opacity: 0.88;
+
+  margin: 0 0 1.1rem 0;
 }
 
+/* Good man. Long career. But you’d never hear him say it. */
 .hero-lead {
   font-size: 1.02rem;
-  line-height: 1.7;
-  margin: 0 0 1.5rem;
-}
+  line-height: 1.6;
+  font-weight: 400;
+  opacity: 0.96;
 
-/* slight text shadow for legibility over the image */
-.hero-title,
-.hero-subtitle,
-.hero-lead {
-  text-shadow: 0 3px 6px rgba(0,0,0,0.9);
+  margin: 0 0 1.6rem 0;
+  max-width: 32rem;
 }
-
-/* buttons */
 
 .hero-actions {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 0 0 1.2rem 0;
 }
-
-.hero-btn {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.55rem 1.3rem;
-  border-radius: 999px;
-}
-
-/* keep visited state from going purple */
-.hero-actions a,
-.hero-actions a:visited {
-  color: inherit;
-}
-
-/* small tag line under buttons */
 
 .hero-tag {
-  max-width: 32rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   opacity: 0.9;
-  margin-top: 0.35rem;
+  max-width: 32rem;
+}
+
+
+/* ========== HERO — RESPONSIVE ========== */
+
+@media (max-width: 880px) {
+  .hero-full {
+    min-height: 82vh;
+    align-items: flex-end;
+  }
+
+  .hero-bg {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    margin-bottom: 2.3rem;
+    max-width: 100%;
+    padding: 1.85rem 1.5rem 2.1rem;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.65);
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
 }
 
 
