@@ -376,6 +376,19 @@ section[id] {
   padding-top: 40px;
 }
 
+.section-header {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.section-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+
 .service-card__header {
   display: flex;
   align-items: center;
@@ -556,51 +569,121 @@ section[id] {
   margin: 32px 0 48px;
 }
 
-/* ===== ROADS HE TRAVELED ===== */
+/* ===== ROADS HE TRAVELED (Nemo + focused copy) ===== */
 
 .road-section {
-  background: #0c0c10;
+  background: radial-gradient(circle at top left, rgba(87, 153, 204, 0.06), #0c0c10 60%);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 70px;  
 }
 
-/* Section title + intro */
-.road-section h2 {
-  margin-bottom: 8px;
+/* Bigger Nemo hero */
+.road-hero {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
 }
 
-.road-section .muted {
-  margin-bottom: 24px;
+/* subtle fade into the section background at the bottom */
+.road-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(11, 11, 13, 0.95));
+  pointer-events: none;
 }
 
-/* Small label used across roads/tribute */
-.eyebrow {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
+.road-hero-bg {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay plate */
+.road-hero-overlay {
+  position: absolute;
+  left: 8%;
+  bottom: 12%;
+  max-width: 500px;
+  padding: 14px 18px;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.35)
+  );
+  color: var(--ink);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+
+.road-hero-overlay h2 {
+  margin: 0 0 4px;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+}
+
+.road-hero-overlay .muted {
+  margin: 0 0 8px;
+}
+
+.road-hero-meta {
+  margin: 0;
+  font-size: 0.95rem;
   color: var(--muted);
-  opacity: 0.8;
 }
 
-/* Main bike layout: photo left, text + playlist right */
-.road-bike-layout {
+/* Small chips with stats */
+.road-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.road-chip {
+  font-size: 0.78rem;
+  border-radius: 999px;
+  padding: 0.22rem 0.7rem;
+  border: 1px solid rgba(233, 235, 239, 0.35);
+  background: rgba(6, 7, 10, 0.65);
+}
+
+/* Layout under Nemo: copy + playlist */
+.road-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 32px;
   align-items: flex-start;
 }
 
-/* Stack on mobile */
 @media (max-width: 900px) {
-  .road-bike-layout {
+  .road-hero-bg {
+    height: 280px;
+  }
+
+  .road-hero-overlay {
+    left: 6%;
+    right: 6%;
+    bottom: 10%;
+    max-width: none;
+  }
+
+  .road-layout {
     grid-template-columns: 1fr;
   }
 }
 
-/* Blocks inside the right column (bike meta, route, playlist label) */
-.road-block {
-  margin-bottom: 24px;
-}
-
+/* Shared label */
 .road-label {
   margin: 0 0 6px;
   font-size: 0.75rem;
@@ -610,89 +693,796 @@ section[id] {
   opacity: 0.8;
 }
 
-.road-meta {
-  margin: 2px 0 10px;
-  font-weight: 500;
-}
-
 .road-route-name {
-  margin: 4px 0 8px;
-  font-size: 1.1rem;
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
-/* Bike photo */
-.road-photo {
+.road-copy p {
+  margin: 0 0 12px;
+}
+
+/* Playlist block */
+.road-playlist-block {
+  max-width: 420px;
+  width: 100%;
+  margin-left: auto;
+}
+
+.road-playlist-note {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.road-playlist-card {
+  border-radius: 12px;
+  border: 1px solid rgba(35, 36, 42, 0.7);
+  background: #101015;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+
+.road-playlist-card iframe {
   display: block;
   width: 100%;
-  max-width: 520px;
+  border: none;
+}
+
+/* Horizontal road gallery under copy/playlist */
+.road-gallery {
+  margin-top: 48px;
+}
+
+.road-gallery-track {
+  margin-top: 12px;
+  display: flex;
+  gap: 0;                          
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* hide ugly scrollbar in most browsers, keep it functional */
+.road-gallery-track::-webkit-scrollbar {
+  height: 6px;
+}
+.road-gallery-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.road-gallery-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
+.road-slide {
+  flex: 0 0 360px;                
+  scroll-snap-align: start;
   border-radius: 14px;
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  background: #101015;
+  border: 1px solid rgba(35, 36, 42, 0.5);   
+  margin-right: 8px;              
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);  
 }
 
-/* Playlist embed wrapper (right column) */
-.road-playlist {
-  margin-top: 18px;
+@media (min-width: 1100px) {
+  .road-slide {
+    flex-basis: 380px;
+  }
 }
 
-.road-playlist iframe {
-  border-radius: 12px;
+.road-slide img {
+  display: block;
+  width: 100%;
+  height: 200px;                   
+  object-fit: cover;
+  object-position: center;         
 }
+
+.road-slide figcaption {
+  padding: 12px 14px 14px;
+}
+
+.road-slide:last-child {
+  margin-right: 0;                 
+}
+
+.road-slide img.top-focus {
+  object-position: 50% 35%;
+}
+
+.road-slide-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.road-slide-meta {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
 
 /* ===== TRIBUTE RIDE FEATURE (FIFTY FOR JOE) ===== */
 
 .tribute-section {
-  background: #101015;
+  background: radial-gradient(circle at top right, rgba(87, 153, 204, 0.10), #101015 60%);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.tribute-layout {
+.tribute-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
-  gap: 40px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.15fr);
+  gap: 48px;
+  align-items: stretch;
 }
 
-/* Stack on mobile */
-@media (max-width: 900px) {
-  .tribute-layout {
+/* Stack on smaller screens */
+@media (max-width: 960px) {
+  .tribute-shell {
     grid-template-columns: 1fr;
   }
 
-  .tribute-card {
-    max-width: 460px;
-    margin: 4px auto 0;
+  .tribute-map-card {
+    max-width: 520px;
+    margin: 6px auto 0;
   }
 }
 
-.tribute-text h2 {
-  margin: 6px 0 14px;
+.tribute-left h2 {
+  margin: 6px 0 10px;
 }
 
-.tribute-text p {
-  margin: 0 0 14px;
+.tribute-lead {
+  margin: 0 0 16px;
 }
 
-/* Right-hand feature card with the map */
-.tribute-card {
-  background: #141418;
-  border-radius: 18px;
+/* Progress bar */
+.tribute-progress {
+  margin: 4px 0 18px;
+  margin-top: 14px;  
+  margin-bottom: 18px;
+  max-width: 85%;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.progress-count {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.progress-track {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: calc(43 / 50 * 100%);
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4d73ff, #5799cc);
+}
+
+/* Stats row */
+.tribute-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.tribute-stat {
+  flex: 1 1 120px;
+  min-width: 150px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(35, 36, 42, 0.9);
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), #09090d);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.stat-label {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Copy and buttons */
+.tribute-copy {
+  margin: 4px 0 18px;
+  color: var(--muted);
+}
+
+.tribute-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tribute-actions .btn {
+  min-width: 160px;
+}
+
+/* MAP CARD */
+
+.tribute-map-card {
+  display: flex;
+  flex-direction: column;
+  background: #0b0b11;
+  border-radius: 20px;
   border: 1px solid #23242a;
-  padding: 24px 24px 22px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
+  padding: 18px 20px 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Map image inside the card */
-.tribute-map {
-  display: block;
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto 14px;
+.map-header {
+  margin-bottom: 6px;
 }
 
-/* Caption under the map */
-.map-caption {
-  text-align: center;
+.map-eyebrow {
+  margin: 0 0 2px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.map-subtitle {
+  margin: 0;
   font-size: 0.9rem;
   color: var(--muted);
 }
+
+.map-body {
+  margin: 14px 0 14px;
+}
+
+.tribute-map {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* Caption + legend */
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.dot-joe {
+  background: #4c8ee8;
+}
+
+.dot-tribute {
+  background: #3a5e8c;
+}
+
+.dot-open {
+  background: #020a33;
+}
+
+.map-legend {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  display: grid;
+  gap: 4px;
+}
+
+.map-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===== STORIES FOR THE ROAD ===== */
+
+.stories-section {
+  background: #09090d;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stories-wrap {
+  margin: 0 auto;
+}
+
+.stories-header h2 {
+  margin-bottom: 6px;
+}
+
+.stories-header p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+/* Card container */
+.stories-card {
+  margin-top: 4px;
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.02), #101015);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* Layout inside form */
+.stories-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stories-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.stories-row label {
+  flex: 1 1 220px;
+}
+
+/* Fields */
+.field-label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.stories-card input,
+.stories-card textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2b2d37;
+  background: #06070b;
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+.stories-card input::placeholder,
+.stories-card textarea::placeholder {
+  color: #707487;
+}
+
+.stories-card input:focus,
+.stories-card textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(87, 153, 204, 0.35);
+}
+
+/* Button + helper text */
+.stories-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 6px;
+}
+
+.stories-footer .btn {
+  padding-inline: 1.3rem;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .stories-card {
+    padding: 18px 16px 18px;
+  }
+
+  .stories-row {
+    flex-direction: column;
+  }
+}
+
+/* ===== STORIES FOR THE ROAD ===== */
+
+.stories-section {
+  background: #09090d;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* .wrap already handles max-width / padding; this just lets us tweak inside */
+.stories-wrap {
+  /* rely on .wrap for width; no extra max-width clamp here */
+}
+
+.stories-header h2 {
+  margin-bottom: 6px;
+}
+
+.stories-header p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+/* Layout: photo + form side by side */
+.stories-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  column-gap: 0;              /* no gutter – they touch */
+  align-items: stretch;       /* make columns equal height */
+  margin-top: 24px;
+}
+
+/* PHOTO SIDE */
+
+.stories-photo figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.02), #101015);
+  border-radius: 18px 0 0 18px;         /* outer-left corners only */
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.stories-photo img {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.stories-photo figcaption {
+  padding: 10px 14px 14px;
+}
+
+
+/* FORM SIDE */
+
+.stories-card {
+  margin-top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 18px 18px 0;         /* outer-right corners only */
+  border: 1px solid var(--line);
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.02), #101015);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+.stories-card form {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stories-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.stories-row label {
+  flex: 1 1 220px;
+}
+
+/* Field labels + inputs */
+
+.field-label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.stories-card input,
+.stories-card textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2b2d37;
+  background: #06070b;
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+.stories-card input::placeholder,
+.stories-card textarea::placeholder {
+  color: #707487;
+}
+
+.stories-card input:focus,
+.stories-card textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(87, 153, 204, 0.35);
+}
+
+/* Button + helper text */
+
+.stories-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 6px;
+}
+
+.stories-footer .btn {
+  padding-inline: 1.3rem;
+}
+
+
+/* Mobile: stack photo above form */
+
+@media (max-width: 800px) {
+  .stories-layout {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .stories-photo figure,
+  .stories-card {
+    border-radius: 18px;
+  }
+}
+
+
+
+/* ===== STORIES WALL ===== */
+
+.stories-wall {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stories-wall-header h3 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.stories-wall-header p {
+  margin: 0 0 16px;
+}
+
+.stories-grid {
+  display: grid;
+  gap: 18px;
+}
+
+/* Story card */
+.story-card {
+  border-radius: 16px;
+  border: 1px solid rgba(35, 36, 42, 0.9);
+  background: #101015;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  padding: 16px 18px 14px;
+}
+
+.story-card-header {
+  margin-bottom: 6px;
+}
+
+.story-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.story-meta {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Body text */
+.story-body {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #dadde4;
+}
+
+.story-body p {
+  margin: 0 0 0.6em;
+}
+
+/* Optional photo block */
+.story-photo {
+  margin: 10px 0 0;
+}
+
+.story-photo img {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .stories-card {
+    padding: 18px 16px 18px;
+  }
+
+  .stories-row {
+    flex-direction: column;
+  }
+}
+
+/* ===== DONATION SECTION ===== */
+
+.donate-section {
+  background: radial-gradient(circle at top left, rgba(87, 153, 204, 0.12), #09090d 56%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.donate-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.donate-header h2 {
+  margin-bottom: 6px;
+}
+
+.donate-header p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+/* Grid of compact, professional cards */
+.donation-grid {
+  display: grid;
+  gap: 14px;
+}
+
+/* Each row = compact “cause” card */
+.donation-item {
+  --donate-accent: var(--accent);
+
+  position: relative;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(9, 9, 13, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 2.4fr) auto;
+  align-items: center;
+  column-gap: 18px;
+}
+
+/* Slim colored rail on the left, echoing the service cards */
+.donation-item::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.85),
+    var(--donate-accent)
+  );
+  opacity: 0.8;
+}
+
+/* Inner content spacing so we clear the rail */
+.donation-meta,
+.donation-copy,
+.donate-btn {
+  position: relative;
+  margin-left: 10px;
+}
+
+/* Left column: tag + org name */
+.donation-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.donation-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+.donation-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Middle column: copy */
+.donation-copy {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+/* Right column: button */
+.donate-btn {
+  padding: 0.45rem 1.05rem;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  border-width: 1px;
+  white-space: nowrap;
+}
+
+/* Accent variants per cause */
+.donation-vets {
+  --donate-accent: #4c8ee8;      /* OPFOB – cool blue */
+}
+
+.donation-troopers {
+  --donate-accent: #5fad4b;      /* SPAM – trooper green */
+}
+
+.donation-uscg {
+  --donate-accent: #f39b3a;      /* Coast Guard – warm orange */
+}
+
+/* Responsive: stack nicely on narrow screens */
+@media (max-width: 800px) {
+  .donation-item {
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+  }
+
+  .donate-btn {
+    justify-self: flex-start;
+  }
+}
+
+
+
+
+

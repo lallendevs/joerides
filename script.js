@@ -16,3 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
   setActive();
   window.addEventListener('scroll', setActive, {passive:true});
 });
+
+// Handle Stories form submission without leaving the page
+const storiesForm = document.querySelector('#share-story form');
+const storiesStatus = document.querySelector('.stories-status');
+
+if (storiesForm) {
+  storiesForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Stop page reload
+
+    storiesStatus.textContent = 'Sending…';
+
+    try {
+      const formData = new FormData(storiesForm);
+
+      const response = await fetch(storiesForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (response.ok) {
+        storiesStatus.textContent = 'Thank you. Your story has been sent.';
+        storiesForm.reset();
+      } else {
+        storiesStatus.textContent = 'Something went wrong. Please try again.';
+      }
+    } catch (error) {
+      storiesStatus.textContent = 'Network error. Please try again.';
+    }
+  });
+}
+
