@@ -11,6 +11,99 @@
   --font-serif: "Merriweather", "Georgia", "Times New Roman", serif;
 }
 
+/* ========== BUTTON SYSTEM ========== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+
+  padding: 0.62rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  background: transparent;
+  color: var(--ink);
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.12s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--active);
+  outline-offset: 3px;
+}
+
+/* SOLID PRIMARY */
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #03040a;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+}
+
+.btn.primary:hover {
+  background: var(--active);
+  border-color: var(--active);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65);
+}
+
+.btn.primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.55);
+}
+
+/* OUTLINE / GHOST (used in hero + mid-page CTAs) */
+.btn.ghost,
+.btn.outline {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--accent);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+}
+
+.btn.ghost:hover,
+.btn.outline:hover {
+  background: rgba(87, 153, 204, 0.14); /* var(--accent) with alpha */
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+/* SMALLER, TEXTIER VARIANT (use for "Share your ride") */
+.btn.small {
+  padding: 0.45rem 1.0rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+}
+
+/* HERO BUTTON TWEAKS — a bit tighter than donate buttons */
+.hero-bg .btn.hero-btn {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.78rem;
+}
+
+/* GIVING CARDS — make buttons a bit more prominent */
+.giving-card .btn,
+.donate-card .btn {
+  padding: 0.7rem 1.6rem;
+  font-size: 0.84rem;
+}
+
+
 *,
 *::before,
 *::after {
@@ -990,10 +1083,6 @@ section[id] {
   gap: 10px;
 }
 
-.tribute-actions .btn {
-  min-width: 160px;
-}
-
 /* MAP CARD */
 
 .tribute-map-card {
@@ -1163,10 +1252,6 @@ section[id] {
   margin-top: 6px;
 }
 
-.stories-footer .btn {
-  padding-inline: 1.3rem;
-}
-
 /* Mobile tweaks */
 @media (max-width: 640px) {
   .stories-card {
@@ -1308,10 +1393,6 @@ section[id] {
   align-items: center;
   gap: 10px 18px;
   margin-top: 6px;
-}
-
-.stories-footer .btn {
-  padding-inline: 1.3rem;
 }
 
 
