@@ -433,12 +433,6 @@ section[id] {
 }
 
 /* ========== IMAGES (ROADS / MAP) ========== */
-.roads {
-  display: block;
-  width: 75%;
-  height: auto;
-  margin: 0 auto 12px;
-}
 
 .us-map {
   display: block;
@@ -562,4 +556,143 @@ section[id] {
   margin: 32px 0 48px;
 }
 
+/* ===== ROADS HE TRAVELED ===== */
 
+.road-section {
+  background: #0c0c10;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Section title + intro */
+.road-section h2 {
+  margin-bottom: 8px;
+}
+
+.road-section .muted {
+  margin-bottom: 24px;
+}
+
+/* Small label used across roads/tribute */
+.eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+/* Main bike layout: photo left, text + playlist right */
+.road-bike-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr);
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Stack on mobile */
+@media (max-width: 900px) {
+  .road-bike-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Blocks inside the right column (bike meta, route, playlist label) */
+.road-block {
+  margin-bottom: 24px;
+}
+
+.road-label {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.road-meta {
+  margin: 2px 0 10px;
+  font-weight: 500;
+}
+
+.road-route-name {
+  margin: 4px 0 8px;
+  font-size: 1.1rem;
+}
+
+/* Bike photo */
+.road-photo {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+}
+
+/* Playlist embed wrapper (right column) */
+.road-playlist {
+  margin-top: 18px;
+}
+
+.road-playlist iframe {
+  border-radius: 12px;
+}
+
+/* ===== TRIBUTE RIDE FEATURE (FIFTY FOR JOE) ===== */
+
+.tribute-section {
+  background: #101015;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tribute-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+/* Stack on mobile */
+@media (max-width: 900px) {
+  .tribute-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tribute-card {
+    max-width: 460px;
+    margin: 4px auto 0;
+  }
+}
+
+.tribute-text h2 {
+  margin: 6px 0 14px;
+}
+
+.tribute-text p {
+  margin: 0 0 14px;
+}
+
+/* Right-hand feature card with the map */
+.tribute-card {
+  background: #141418;
+  border-radius: 18px;
+  border: 1px solid #23242a;
+  padding: 24px 24px 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
+}
+
+/* Map image inside the card */
+.tribute-map {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 14px;
+}
+
+/* Caption under the map */
+.map-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
